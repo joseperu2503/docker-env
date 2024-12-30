@@ -1,0 +1,16 @@
+services:
+  app:
+    container_name: docker-env
+    build:
+      context: .
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    # env_file:
+    #   - .env
+    #   # - .env.dev
+
+    environment:
+      - SERVER_PORT=${SERVER_PORT}
+      - DB_HOST=${DB_HOST}
+
+    restart: always
